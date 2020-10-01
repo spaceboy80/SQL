@@ -1,0 +1,2 @@
+SET VERIFY OFF;
+SELECT &abc from DUAL;

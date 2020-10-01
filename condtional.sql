@@ -1,0 +1,13 @@
+CREATE TABLE condTable (COL1 int);
+INSERT INTO condTable VALUES (1);
+INSERT INTO condTable VALUES (2);
+INSERT INTO condTable VALUES (3);
+INSERT INTO condTable VALUES (NULL);
+COMMIT;
+
+SELECT CASE COL1 WHEN 1 THEN 'ONE' WHEN 2 THEN 'TWO' WHEN NVL(COL1, 0) THEN 'NADA' ELSE 'NONE FOR YOU' END as "NUMBERS" FROM condTable;
+SELECT DECODE(COL1, 1, 'UNO', 2, 'DOS', NULL, 'NADA', 'NONE 4 u') as "DECODE" FROM condTable;
+
+CREATE SYNONYM kondtable for condTable;
+drop table condTable;
+
